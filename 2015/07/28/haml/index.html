@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>haml | Cynosure&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Haml (HTML Abstraction Markup Language) is a lightweight markup language that is used to describe the XHTML of any web document without the use of traditional inline coding.Haml 的职能是替代那些内嵌代码的page：php">
+<meta property="og:type" content="article">
+<meta property="og:title" content="haml">
+<meta property="og:url" content="http://cynosures.github.io/2015/07/28/haml/index.html">
+<meta property="og:site_name" content="Cynosure's blog">
+<meta property="og:description" content="Haml (HTML Abstraction Markup Language) is a lightweight markup language that is used to describe the XHTML of any web document without the use of traditional inline coding.Haml 的职能是替代那些内嵌代码的page：php">
+<meta property="og:updated_time" content="2015-08-02T14:10:33.558Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="haml">
+<meta name="twitter:description" content="Haml (HTML Abstraction Markup Language) is a lightweight markup language that is used to describe the XHTML of any web document without the use of traditional inline coding.Haml 的职能是替代那些内嵌代码的page：php">
+  
+    <link rel="alternative" href="/atom.xml" title="Cynosure&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Cynosure&#39;s blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">「Stay hungry. Stay foolish.」</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://cynosures.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-haml" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/07/28/haml/" class="article-date">
+  <time datetime="2015-07-28T15:50:41.000Z" itemprop="datePublished">2015-07-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      haml
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Haml (HTML Abstraction Markup Language) is a lightweight markup language that is used to describe the XHTML of any web document without the use of traditional inline coding.Haml 的职能是替代那些内嵌代码的page：php | erb | asp 。不过， haml避免了直接coding xhtml到模板，因为它实际上就是一个xhtml的抽象描述，内部使用一些code来生成动态内容</p>
+<h2 id="特点">特点</h2><ol>
+<li>空格标识层次嵌套关系</li>
+<li>良好的标签格式</li>
+<li>Don’t repeat yourself</li>
+<li>遵循CSS标准</li>
+<li>集成了Ruby代码</li>
+<li>文件后缀为.haml</li>
+</ol>
+<h2 id="示例">示例</h2><h3 id="ERB模板中可以使用的示例变量在haml中仍可使用">ERB模板中可以使用的示例变量在haml中仍可使用</h3><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#content</span><br><span class="line">.title</span><br><span class="line"><span class="comment">  / ruby 变量 @title=Ruby</span></span><br><span class="line"><span class="tag">  %<span class="title">h1</span></span> = @title</span><br><span class="line">  =<span class="ruby"> link_to <span class="string">'Home'</span>, home_url</span></span><br></pre></td></tr></table></figure>
+<p>上面的haml代码会被编译为：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"content"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"title"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">h1</span>&gt;</span>Ruby<span class="tag">&lt;/<span class="title">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"/"</span>&gt;</span>Home<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="XTML_Tags">XTML Tags</h2><ul>
+<li><strong>%:</strong> 百分号符号是一行的开始，紧接着一个元素的名字，然后后面跟一个可选的修饰语（见下例），比如一个空格，或一行文本等，就会被渲染到这个元素里成为其内容<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">%<span class="title">one</span></span></span><br><span class="line"><span class="tag">  %<span class="title">two</span></span></span><br><span class="line"><span class="tag">    %<span class="title">three</span></span> Hey</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>被编译为：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">one</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">two</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">three</span>&gt;</span>Hey<span class="tag">&lt;/<span class="title">three</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">two</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">one</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>{}:</strong> 括号内的Ruby hash是用来指名一个元素的属性。它作为一个ruby hash的字面量，局部变量也可以在其中使用。Hash放在被定义好的标签之后，基本上就和Ruby语法一样，看例子：<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">%<span class="title">head</span>&#123; <span class="symbol">:name</span> =&gt; <span class="string">"doc_head"</span> &#125;</span></span><br><span class="line"><span class="tag">  %<span class="title">script</span>&#123; 'type' =&gt; "text/"+"javascript", <span class="symbol">:src</span> =&gt; <span class="string">"javascripts/script_#&#123;2+7&#125;"</span> &#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>被编译为 :<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">head</span> <span class="attribute">name</span>=<span class="value">"doc_head"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"javascripts/script_9"</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="undefined"></span><br><span class="line">  </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><strong>[]:</strong> 方括号跟在一个标签定义之后，包含一个Ruby 对象，被用来为这个标签设置class和id属性。这个class的值被设置为这个对象的类名（两个单词用下划线形式表示，而不是驼峰表示方法）并且id的值被设置为对象的类名加上这个对象的id，也是下划线连接。因为一个对象的id通常是朦胧的实现细节，这是表现model的实例最有用的元素了<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/ def show</span></span><br><span class="line"><span class="comment">/   @user = CrazyUser.find(15)</span></span><br><span class="line"><span class="comment">/ end</span></span><br><span class="line"><span class="tag">%<span class="title">div</span></span>[@user]</span><br><span class="line"><span class="tag">  %<span class="title">bar</span></span>[290]/</span><br><span class="line">  Hello!</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>被编译为：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"crazy_user"</span> <span class="attribute">id</span>=<span class="value">"crazy_user_15"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">bar</span> <span class="attribute">class</span>=<span class="value">"fixnum"</span> <span class="attribute">id</span>=<span class="value">"fixnum_581"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://cynosures.github.io/2015/07/28/haml/" data-id="cicw0fwys000fxti5fo9u3jlt" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RoR/">RoR</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/08/02/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/04/12/php-array-function/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">php_array_function</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RoR/">RoR</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/RoR/" style="font-size: 10px;">RoR</a> <a href="/tags/php/" style="font-size: 20px;">php</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/08/03/css-0/">对CSS伪类中:first-child和:last-child的理解</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/02/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2015/07/28/haml/">haml</a>
+          </li>
+        
+          <li>
+            <a href="/2015/04/12/php-array-function/">php_array_function</a>
+          </li>
+        
+          <li>
+            <a href="/2015/04/07/内置函数/">内置函数</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">links</h3>
+    <div class="widget">
+      <ul>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 Cynosure Kuruma<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
