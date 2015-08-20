@@ -3,18 +3,36 @@
 <head>
   <meta charset="utf-8">
   
-  <title>categories | Cynosure&#39;s blog</title>
+  <title>RoR中对于Time类的扩展 | Cynosure&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="cynosure blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://cynosures.github.io/categories/index.html">
+  <meta name="description" content="今天是七夕，又被虐单身。。。8.12塘沽爆炸了，悼念一下。。今天看新闻塘沽那边的海河区域死了好多鱼。。
+唉， 开始正题：
+今天突然对MySQL中的BETWEEN…AND的边界问题拿不准了，所以去查看了一下文档，以下定义附上
+
+expr BETWEEN min AND max
+
+If expr is greater than or equal to min and expr is less than">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RoR中对于Time类的扩展">
+<meta property="og:url" content="http://cynosures.github.io/2015/08/20/ror-0/index.html">
 <meta property="og:site_name" content="Cynosure's blog">
-<meta property="og:description" content="cynosure blog">
-<meta property="og:updated_time" content="2015-08-02T13:47:52.486Z">
+<meta property="og:description" content="今天是七夕，又被虐单身。。。8.12塘沽爆炸了，悼念一下。。今天看新闻塘沽那边的海河区域死了好多鱼。。
+唉， 开始正题：
+今天突然对MySQL中的BETWEEN…AND的边界问题拿不准了，所以去查看了一下文档，以下定义附上
+
+expr BETWEEN min AND max
+
+If expr is greater than or equal to min and expr is less than">
+<meta property="og:updated_time" content="2015-08-20T14:49:11.061Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
-<meta name="twitter:description" content="cynosure blog">
+<meta name="twitter:title" content="RoR中对于Time类的扩展">
+<meta name="twitter:description" content="今天是七夕，又被虐单身。。。8.12塘沽爆炸了，悼念一下。。今天看新闻塘沽那边的海河区域死了好多鱼。。
+唉， 开始正题：
+今天突然对MySQL中的BETWEEN…AND的边界问题拿不准了，所以去查看了一下文档，以下定义附上
+
+expr BETWEEN min AND max
+
+If expr is greater than or equal to min and expr is less than">
   
     <link rel="alternative" href="/atom.xml" title="Cynosure&#39;s blog" type="application/atom+xml">
   
@@ -64,10 +82,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-ror-0" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/categories/index.html" class="article-date">
-  <time datetime="2015-04-06T14:50:27.000Z" itemprop="datePublished">2015-04-06</time>
+    <a href="/2015/08/20/ror-0/" class="article-date">
+  <time datetime="2015-08-20T08:50:41.000Z" itemprop="datePublished">2015-08-20</time>
 </a>
     
   </div>
@@ -78,7 +96,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      categories
+      RoR中对于Time类的扩展
     </h1>
   
 
@@ -86,17 +104,43 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>今天是七夕，又被虐单身。。。<br>8.12塘沽爆炸了，悼念一下。。<br>今天看新闻塘沽那边的海河区域死了好多鱼。。</p>
+<p>唉， 开始正题：</p>
+<p>今天突然对MySQL中的BETWEEN…AND的边界问题拿不准了，所以去查看了一下文档，以下定义附上</p>
+<ul>
+<li><code>expr BETWEEN min AND max</code></li>
+</ul>
+<p>If <code>expr</code> is greater than or equal to <code>min</code> and <code>expr</code> is less than or equal to <code>max</code>, BETWEEN returns 1, otherwise it returns 0.<br>This is equivalent to the expression (min &lt;= expr AND expr &lt;= max) if all the arguments are of the same type. </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&#62; SELECT 2 BETWEEN 1 AND 3, 2 BETWEEN 3 and 1;&#10;        -&#62; 1, 0&#10;mysql&#62; SELECT 1 BETWEEN 2 AND 3;&#10;        -&#62; 0&#10;mysql&#62; SELECT &#39;b&#39; BETWEEN &#39;a&#39; AND &#39;c&#39;;&#10;        -&#62; 1&#10;mysql&#62; SELECT 2 BETWEEN 2 AND &#39;3&#39;;&#10;        -&#62; 1&#10;mysql&#62; SELECT 2 BETWEEN 2 AND &#39;x-3&#39;;&#10;        -&#62; 0</span><br></pre></td></tr></table></figure>
+<p>For best results when using BETWEEN with date or time values, use CAST() to explicitly convert the values to the desired data type.<br>Examples: If you compare a DATETIME to two DATE values, convert the DATE values to DATETIME values. If you use a string constant<br>such as ‘2001-1-1’ in a comparison to a DATE, cast the string to a DATE.</p>
+<p>得到的结论就是左右边界均是闭合的</p>
+<hr>
+<p>今天在编写Rails中的时间段搜索时，在文档中看到一个强大得写法<br><code>User.where({ created_at: (Time.now.midnight - 1.day)..Time.now.midnight })</code></p>
+<p>直接在项目中用到，如下：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">count_a = IntegralOrder.where(&#123;&#10;                                 created_at: Time.now.midnight..(Time.now.midnight.tomorrow - 1),&#10;                                 shop_id: @shop_id,&#10;                                 open_id: @user_openid,&#10;                                 item_id: integral_order.item_id&#10;                              &#125;).count</span><br></pre></td></tr></table></figure></p>
+<p>以上执行的结果是某一会员在今天产生的订单数</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://cynosures.github.io/categories/index.html" data-id="cidkbsldx00013zi52tlkd2zg" class="article-share-link">Share</a>
+      <a data-url="http://cynosures.github.io/2015/08/20/ror-0/" data-id="cidkbsleb00063zi59t6gr7ax" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RoR/">RoR</a></li></ul>
+
     </footer>
   </div>
   
     
+<nav id="article-nav">
+  
+  
+    <a href="/2015/08/03/css-0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">对CSS伪类中``:first-child``和``:last-child``的理解</div>
+    </a>
+  
+</nav>
+
   
 </article>
 

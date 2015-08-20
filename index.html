@@ -65,6 +65,58 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-ror-0" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/20/ror-0/" class="article-date">
+  <time datetime="2015-08-20T08:50:41.000Z" itemprop="datePublished">2015-08-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/20/ror-0/">RoR中对于Time类的扩展</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天是七夕，又被虐单身。。。<br>8.12塘沽爆炸了，悼念一下。。<br>今天看新闻塘沽那边的海河区域死了好多鱼。。</p>
+<p>唉， 开始正题：</p>
+<p>今天突然对MySQL中的BETWEEN…AND的边界问题拿不准了，所以去查看了一下文档，以下定义附上</p>
+<ul>
+<li><code>expr BETWEEN min AND max</code></li>
+</ul>
+<p>If <code>expr</code> is greater than or equal to <code>min</code> and <code>expr</code> is less than or equal to <code>max</code>, BETWEEN returns 1, otherwise it returns 0.<br>This is equivalent to the expression (min &lt;= expr AND expr &lt;= max) if all the arguments are of the same type. </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&#62; SELECT 2 BETWEEN 1 AND 3, 2 BETWEEN 3 and 1;&#10;        -&#62; 1, 0&#10;mysql&#62; SELECT 1 BETWEEN 2 AND 3;&#10;        -&#62; 0&#10;mysql&#62; SELECT &#39;b&#39; BETWEEN &#39;a&#39; AND &#39;c&#39;;&#10;        -&#62; 1&#10;mysql&#62; SELECT 2 BETWEEN 2 AND &#39;3&#39;;&#10;        -&#62; 1&#10;mysql&#62; SELECT 2 BETWEEN 2 AND &#39;x-3&#39;;&#10;        -&#62; 0</span><br></pre></td></tr></table></figure>
+<p>For best results when using BETWEEN with date or time values, use CAST() to explicitly convert the values to the desired data type.<br>Examples: If you compare a DATETIME to two DATE values, convert the DATE values to DATETIME values. If you use a string constant<br>such as ‘2001-1-1’ in a comparison to a DATE, cast the string to a DATE.</p>
+<p>得到的结论就是左右边界均是闭合的</p>
+<hr>
+<p>今天在编写Rails中的时间段搜索时，在文档中看到一个强大得写法<br><code>User.where({ created_at: (Time.now.midnight - 1.day)..Time.now.midnight })</code></p>
+<p>直接在项目中用到，如下：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">count_a = IntegralOrder.where(&#123;&#10;                                 created_at: Time.now.midnight..(Time.now.midnight.tomorrow - 1),&#10;                                 shop_id: @shop_id,&#10;                                 open_id: @user_openid,&#10;                                 item_id: integral_order.item_id&#10;                              &#125;).count</span><br></pre></td></tr></table></figure></p>
+<p>以上执行的结果是某一会员在今天产生的订单数</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://cynosures.github.io/2015/08/20/ror-0/" data-id="cidkbsleb00063zi59t6gr7ax" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RoR/">RoR</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-css-0" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/08/03/css-0/" class="article-date">
@@ -79,7 +131,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/03/css-0/">对CSS伪类中:first-child和:last-child的理解</a>
+      <a class="article-title" href="/2015/08/03/css-0/">对CSS伪类中``:first-child``和``:last-child``的理解</a>
     </h1>
   
 
@@ -102,7 +154,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://cynosures.github.io/2015/08/03/css-0/" data-id="cicw0fwwr0000xti5078q6we3" class="article-share-link">Share</a>
+      <a data-url="http://cynosures.github.io/2015/08/03/css-0/" data-id="cidkbsles000i3zi5zbsttpc0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
@@ -149,7 +201,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://cynosures.github.io/2015/08/02/hello-world/" data-id="cicw0fwyo000exti5fyxjhwg2" class="article-share-link">Share</a>
+      <a data-url="http://cynosures.github.io/2015/08/02/hello-world/" data-id="cidkbslen000f3zi5g08ysnpk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -213,7 +265,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://cynosures.github.io/2015/07/28/haml/" data-id="cicw0fwys000fxti5fo9u3jlt" class="article-share-link">Share</a>
+      <a data-url="http://cynosures.github.io/2015/07/28/haml/" data-id="cidkbslep000g3zi5n5kfxcba" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RoR/">RoR</a></li></ul>
@@ -257,65 +309,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://cynosures.github.io/2015/04/12/php-array-function/" data-id="cicw0fwym000cxti5eilb8ys8" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-内置函数" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/04/07/内置函数/" class="article-date">
-  <time datetime="2015-04-06T16:43:03.000Z" itemprop="datePublished">2015-04-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/04/07/内置函数/">内置函数</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="以下函数是在看MySQL时，遇到的几个函数">以下函数是在看MySQL时，遇到的几个函数</h3><p><strong>addslashes:</strong> 使用反斜线引用字符串</p>
-<ul>
-<li>适用场景：当用户输入数据提交到一个数据库时，必须转义数据</li>
-<li>返回类型：string</li>
-<li><p>e.g</p>
-  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">&lt;?php</span></span><br><span class="line"><span class="variable">$str</span> = <span class="string">"Is your name O'reilly?"</span>;</span><br><span class="line">	</span><br><span class="line"><span class="comment">// 输出： Is your name O\'reilly?</span></span><br><span class="line"><span class="keyword">echo</span> addslashes(<span class="variable">$str</span>);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>stripslashes:</strong> 反引用一个使用 addcslashes() 转义的字符串</p>
-<ul>
-<li>返回类型：string</li>
-<li>作用：反转义一个需要反转义的字符串</li>
-</ul>
-<p><strong>get_magic_quotes_gpc:</strong> 获取当前 magic_quotes_gpc 的配置选项设置</p>
-<ul>
-<li>返回类型：bool</li>
-<li><p>e.g</p>
-  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">&lt;?php</span></span><br><span class="line"><span class="comment">// 如果启用了魔术引号</span></span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$_POST</span>[<span class="string">'lastname'</span>];             <span class="comment">// O\'reilly</span></span><br><span class="line"><span class="keyword">echo</span> addslashes(<span class="variable">$_POST</span>[<span class="string">'lastname'</span>]); <span class="comment">// O\\\'reilly</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://cynosures.github.io/2015/04/07/内置函数/" data-id="cicw0fwyc0005xti5yor9473p" class="article-share-link">Share</a>
+      <a data-url="http://cynosures.github.io/2015/04/12/php-array-function/" data-id="cidkbslek000d3zi5fukprgxo" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
@@ -342,7 +336,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RoR/">RoR</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">4</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RoR/">RoR</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">4</span></li></ul>
     </div>
   </div>
 
@@ -351,7 +345,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/RoR/" style="font-size: 10px;">RoR</a> <a href="/tags/php/" style="font-size: 20px;">php</a>
+      <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/RoR/" style="font-size: 15px;">RoR</a> <a href="/tags/php/" style="font-size: 20px;">php</a>
     </div>
   </div>
 
@@ -360,7 +354,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -372,7 +366,11 @@
       <ul>
         
           <li>
-            <a href="/2015/08/03/css-0/">对CSS伪类中:first-child和:last-child的理解</a>
+            <a href="/2015/08/20/ror-0/">RoR中对于Time类的扩展</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/03/css-0/">对CSS伪类中``:first-child``和``:last-child``的理解</a>
           </li>
         
           <li>
@@ -385,10 +383,6 @@
         
           <li>
             <a href="/2015/04/12/php-array-function/">php_array_function</a>
-          </li>
-        
-          <li>
-            <a href="/2015/04/07/内置函数/">内置函数</a>
           </li>
         
       </ul>

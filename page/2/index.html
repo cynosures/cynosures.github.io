@@ -65,6 +65,64 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-内置函数" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/04/07/内置函数/" class="article-date">
+  <time datetime="2015-04-06T16:43:03.000Z" itemprop="datePublished">2015-04-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/04/07/内置函数/">内置函数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="以下函数是在看MySQL时，遇到的几个函数">以下函数是在看MySQL时，遇到的几个函数</h3><p><strong>addslashes:</strong> 使用反斜线引用字符串</p>
+<ul>
+<li>适用场景：当用户输入数据提交到一个数据库时，必须转义数据</li>
+<li>返回类型：string</li>
+<li><p>e.g</p>
+  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">&lt;?php</span></span><br><span class="line"><span class="variable">$str</span> = <span class="string">"Is your name O'reilly?"</span>;</span><br><span class="line">	</span><br><span class="line"><span class="comment">// 输出： Is your name O\'reilly?</span></span><br><span class="line"><span class="keyword">echo</span> addslashes(<span class="variable">$str</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>stripslashes:</strong> 反引用一个使用 addcslashes() 转义的字符串</p>
+<ul>
+<li>返回类型：string</li>
+<li>作用：反转义一个需要反转义的字符串</li>
+</ul>
+<p><strong>get_magic_quotes_gpc:</strong> 获取当前 magic_quotes_gpc 的配置选项设置</p>
+<ul>
+<li>返回类型：bool</li>
+<li><p>e.g</p>
+  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">&lt;?php</span></span><br><span class="line"><span class="comment">// 如果启用了魔术引号</span></span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$_POST</span>[<span class="string">'lastname'</span>];             <span class="comment">// O\'reilly</span></span><br><span class="line"><span class="keyword">echo</span> addslashes(<span class="variable">$_POST</span>[<span class="string">'lastname'</span>]); <span class="comment">// O\\\'reilly</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://cynosures.github.io/2015/04/07/内置函数/" data-id="cidkbsle300033zi5hiql3w2r" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-recursion" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/03/30/recursion/" class="article-date">
@@ -95,7 +153,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://cynosures.github.io/2015/03/30/recursion/" data-id="cicw0fwyg0008xti56w128cbr" class="article-share-link">Share</a>
+      <a data-url="http://cynosures.github.io/2015/03/30/recursion/" data-id="cidkbslef00093zi5taqg41vd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
@@ -135,7 +193,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://cynosures.github.io/2015/03/30/php/" data-id="cicw0fwyj000axti5yjx3ob8l" class="article-share-link">Share</a>
+      <a data-url="http://cynosures.github.io/2015/03/30/php/" data-id="cidkbsleh000b3zi5damvl5rv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
@@ -162,7 +220,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RoR/">RoR</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">4</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RoR/">RoR</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">4</span></li></ul>
     </div>
   </div>
 
@@ -171,7 +229,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/RoR/" style="font-size: 10px;">RoR</a> <a href="/tags/php/" style="font-size: 20px;">php</a>
+      <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/RoR/" style="font-size: 15px;">RoR</a> <a href="/tags/php/" style="font-size: 20px;">php</a>
     </div>
   </div>
 
@@ -180,7 +238,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -192,7 +250,11 @@
       <ul>
         
           <li>
-            <a href="/2015/08/03/css-0/">对CSS伪类中:first-child和:last-child的理解</a>
+            <a href="/2015/08/20/ror-0/">RoR中对于Time类的扩展</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/03/css-0/">对CSS伪类中``:first-child``和``:last-child``的理解</a>
           </li>
         
           <li>
@@ -205,10 +267,6 @@
         
           <li>
             <a href="/2015/04/12/php-array-function/">php_array_function</a>
-          </li>
-        
-          <li>
-            <a href="/2015/04/07/内置函数/">内置函数</a>
           </li>
         
       </ul>
